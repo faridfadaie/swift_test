@@ -9,7 +9,9 @@
 import UIKit
 
 class AddToDoViewController: UIViewController {
-
+    var toDoItem: ToDoItem?
+    @IBOutlet var textField: UITextField
+    @IBOutlet var doneButton: UIBarButtonItem
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +22,17 @@ class AddToDoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if sender as? NSObject != self.doneButton{
+            return
+        }
+        if self.textField.text.utf16count > 0{
+            self.toDoItem = ToDoItem(name: self.textField.text)
+        }
+    }
+    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+        self.view.endEditing(true)
+    }
 
     /*
     // #pragma mark - Navigation

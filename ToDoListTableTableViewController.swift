@@ -10,8 +10,13 @@ import UIKit
 
 
 @objc(ToDoListTableViewController)class ToDoListTableViewController: UITableViewController {
-    @IBAction func unwindToList(s:UIStoryboardSegue) {
+    @IBAction func unwindToList(segue:UIStoryboardSegue){
+        var source: AddToDoViewController = segue.sourceViewController as AddToDoViewController
         
+        if var item: ToDoItem = source.toDoItem{
+            self.toDoItems.addObject(item)
+            self.tableView.reloadData()
+        }
     }
     var toDoItems: NSMutableArray = []
     func loadInitialData(){
@@ -52,6 +57,17 @@ import UIKit
             var todoitem: ToDoItem = self.toDoItems.objectAtIndex(indexPath.row) as ToDoItem
             
             cell.textLabel.text = todoitem.itemName
+            if todoitem.completed{
+                
+                cell.accessoryType = .Checkmark
+                
+            }
+                
+            else{
+                
+                cell.accessoryType = .None
+                
+            }
             
             return cell
             
@@ -71,6 +87,22 @@ import UIKit
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath:
+        
+        NSIndexPath!) {
+            
+            tableView.deselectRowAtIndexPath(indexPath, animated: false)
+            
+            var tappedItem: ToDoItem = self.toDoItems.objectAtIndex(indexPath.row) as
+                
+            ToDoItem
+            
+            tappedItem.completed = !tappedItem.completed
+            
+            tableView.reloadData()
+            
     }
 
     // #pragma mark - Table view data source
