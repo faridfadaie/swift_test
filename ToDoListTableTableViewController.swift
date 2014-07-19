@@ -15,7 +15,10 @@ import UIKit
         
         if var item: ToDoItem = source.toDoItem{
             self.toDoItems.addObject(item)
-            self.tableView.reloadData()
+            println(self.toDoItems.count)
+            let targetIndexPath = NSIndexPath(forRow: self.toDoItems.count - 1, inSection: 0)
+            self.tableView.insertRowsAtIndexPaths([targetIndexPath], withRowAnimation: .Automatic)
+            //self.tableView.reloadData()
         }
     }
     var toDoItems: NSMutableArray = []
@@ -49,6 +52,7 @@ import UIKit
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath:
         
         NSIndexPath!) -> UITableViewCell! {
+            println(indexPath.section)
             
             let CellIndentifier: NSString = "ListPrototypeCell"
             
@@ -100,8 +104,8 @@ import UIKit
             ToDoItem
             
             tappedItem.completed = !tappedItem.completed
-            
-            tableView.reloadData()
+            tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: indexPath.row, inSection: 0)], withRowAnimation: .Automatic)
+            //tableView.reloadData()
             
     }
 
