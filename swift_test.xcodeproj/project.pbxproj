@@ -15,6 +15,7 @@
 		76A12650193EA730008842B2 /* test2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A1264F193EA730008842B2 /* test2Tests.swift */; };
 		76C344E11979C2E0008F37DB /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C344E01979C2E0008F37DB /* AddToDoViewController.swift */; };
 		76C344E31979C443008F37DB /* ToDoListTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C344E21979C443008F37DB /* ToDoListTableTableViewController.swift */; };
+		76E64B3F197AF98D007A797C /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E64B3E197AF98D007A797C /* Server.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		76C344E01979C2E0008F37DB /* AddToDoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
 		76C344E21979C443008F37DB /* ToDoListTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListTableTableViewController.swift; sourceTree = "<group>"; };
 		76C344E41979C4EF008F37DB /* ToDoListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToDoListTableViewController.h; sourceTree = "<group>"; };
+		76E64B3E197AF98D007A797C /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		76A1262E193EA730008842B2 = {
 			isa = PBXGroup;
 			children = (
+				76E64B3E197AF98D007A797C /* Server.swift */,
 				76C344E01979C2E0008F37DB /* AddToDoViewController.swift */,
 				76C344E21979C443008F37DB /* ToDoListTableTableViewController.swift */,
 				7642C3441979CC10000BC37C /* ToDoItem.swift */,
@@ -221,6 +224,7 @@
 			files = (
 				76A1263F193EA730008842B2 /* ViewController.swift in Sources */,
 				76C344E11979C2E0008F37DB /* AddToDoViewController.swift in Sources */,
+				76E64B3F197AF98D007A797C /* Server.swift in Sources */,
 				7642C3451979CC10000BC37C /* ToDoItem.swift in Sources */,
 				76C344E31979C443008F37DB /* ToDoListTableTableViewController.swift in Sources */,
 				76A1263D193EA730008842B2 /* AppDelegate.swift in Sources */,

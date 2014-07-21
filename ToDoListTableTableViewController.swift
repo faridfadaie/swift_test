@@ -22,17 +22,12 @@ import UIKit
         }
     }
     var toDoItems: NSMutableArray = []
-    func loadInitialData(){
-        
-        var item1 = ToDoItem(name: "Buy, milk")
-        self.toDoItems.addObject(item1)
-        
-        var item2 = ToDoItem(name: "Buy eggs")
-        self.toDoItems.addObject(item2)
-        
-        var item3 = ToDoItem(name: "Read a book")
-        self.toDoItems.addObject(item3)
-        
+    let server = Server()
+    func load(data : AnyObject){
+        for item in data as NSArray {
+            self.toDoItems.addObject(ToDoItem(name: item["owner"] as String))
+        }
+        self.tableView.reloadData()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
@@ -76,10 +71,10 @@ import UIKit
             return cell
             
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadInitialData()
+        self.server.call("bb/threads", self.load)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
